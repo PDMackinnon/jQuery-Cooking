@@ -1,0 +1,135 @@
+.top-tab-bar {
+    
+    background-image: url('../img/tab-chrome_04.png');
+    background-repeat: repeat-x;
+	
+	
+    border: 0px ;
+	
+	height:87px;
+	
+    display: flex;
+	
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 400px;
+	flex-wrap: wrap;
+
+	
+	
+}
+
+.tab-button {
+	
+    background-image: url('../img/tab-red_03.png');
+    background-repeat: no-repeat;
+	height:77px;
+	width:267px;
+    text-align: center;
+	
+padding-top:30px;	
+	
+}
+
+
+.tab-button:active {
+    background-image: url('../img/tab-green_03.png');
+}
+.tab-button-selected {
+    background-image: url('../img/tab-green_03.png');
+}
+
+
+#article2 {
+	display:none;
+	
+}
+
+#panel1 {
+	display:block;
+	width:800px;
+	background:yellow;
+}
+
+#flickrfeed {
+	
+	display:none;
+	width:700px;
+	background:gray;
+}
+
+.flickrFeedItem {
+	
+    border-bottom: 14px solid white;
+	
+}
+
+.flickrTags {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2285a2;
+	
+   font-size: .5rem;
+   font-weight: bold;
+   
+}
+
+
+button, .button {
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  background-color: #2ba6cb;
+  border-color: #2285a2;
+  color: white;
+  transition: background-color 300ms ease-out;
+  border-radius: 2px;
+  
+ }
+
+ button:hover, button:focus, .button:hover, .button:focus {
+   background-color: #2285a2; }
+ button:hover, button:focus, .button:hover, .button:focus {
+   color: white; }
+   
+   
+.del {
+	display:none;
+	   background-color: red;
+	   padding-top: .5rem;
+	   padding-right: .5rem;
+	   padding-bottom: .5rem;
+	   padding-left: .5rem;
+	   font-size: .5rem;
+	   font-weight: bold;
+   }
+   
+   
+   .thing {
+       display: flex;
+	
+       flex-grow: 0;
+       flex-shrink: 0;
+       flex-basis: 400px;
+	   flex-wrap: wrap;
+   	
+       border-bottom: 4px solid gray;
+	
+	
+   }
+   
