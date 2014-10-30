@@ -50,15 +50,29 @@ $(function(){
 		
 		$(".del").hide();  // make sure edit mode is off....
 		
-		$("#panel1").append(function(){
+		
+		//new version here animates with slideDown() so we see now content arrive
+		//note that css of the class .thing is initially display:none for this to work
 
 			var container=$("<div class='thing'></div>");
 			
 			var nameInput = $("#panel1Input").val();
 		
-			container.append("<button class='button del'> x </button>").append("<p>hello there! " + nameInput + "</p>");
-			return container;
-		});
+			container.append("<p><button class='button del'> x </button> hello there! " + nameInput+"</p>");
+
+			container.appendTo($("#panel1")).slideDown(300);
+
+		// version below just appends the new div... no animation:
+		
+		// $("#panel1").append(function(){
+		//
+		// 	var container=$("<div class='thing'></div>");
+		//
+		// 	var nameInput = $("#panel1Input").val();
+		//
+		// 	container.append("<p><button class='button del'> x </button> hello there! " + nameInput+"</p>");
+		// 	return container;
+		// });
 		
 	});
 	
@@ -71,7 +85,10 @@ $(function(){
 		$(".del").click(function(){
 						
 			//delete this entry
-			$(this).parent().remove();
+		//	$(this).parent().parent().remove();  //parent is <p> then grand-parent is <div class="thing">
+			
+			$(this).parent().parent().slideUp(400,function(){this.remove()});  //parent is <p> then grand-parent is <div class="thing">
+																				// callback removes this
 			
 		});	
 	});
