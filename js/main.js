@@ -190,7 +190,10 @@ $(function(){
 			$(this).parent().remove();
 		});
 		
+		//TODO:
+		//additive filters so filter for e.g. "nikon" || "canon" || "sunset"
 		
+		//meanwhile just applies one filter - this one just added:
  		performFilter(theFilterText);
 		
 		 
