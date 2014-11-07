@@ -94,18 +94,28 @@ $(function(){
 	});
 	
 	$("#flickrGet").click(function(){
-		
-		//iterate over jsonFlickrFeed JSON object and show the feed
+			 
+		 //add filter menu:
+		 $("#flickrfeedContent").append("<button id='filterMenuButton' class='button'>Filter</button>");
+
+		 $("#flickrfeedContent").append("<header id='filterMenu' class='flickrTags'></header>");
+		 $("#flickrfeedContent").append("<header id='aciveFilters' class='flickrTags'>test filters</header>");
+		 
+		 
+		 
+		 $("#filterMenuButton").click(function(){
+			 $("#filterMenu").toggle();
+		 });
+		 
+		 
+		 
+		 
+		 
+ 		//iterate over jsonFlickrFeed JSON object and show the feed
 				 
-		 var feedItem;
+ 		 var feedItem;
 		 
-		 var allTags = "";
-		 for (feedItem in jsonFlickrFeed.items) {
-			 allTags += jsonFlickrFeed.items[feedItem].tags;
-		 }
-		$("#flickrfeed").append("<header class='flickrTags'>" + allTags +"</header>");
-		 
-		 
+		 //add each feed item:
 		 for (feedItem in jsonFlickrFeed.items) {
 			 		 	
 			 var container = $("<div class='flickrFeedItem'></div>");
@@ -124,37 +134,67 @@ $(function(){
 		 }
 			 
 			 $("#flickrfeed").append(container);
-		 }
+		 }//end for
+
+
+
 		 
+  		//find the tags for a filter:
+  		var s = $('#flickrfeed >.flickrFeedItem');	// s is an array of feed items
+		
+ 		var mytags = "";
+ 		s.each(function(){mytags += " " + $(this).attr("data-tags")});	//grab all tags as string (seperated by spaces)
+				
+ 		var tagsArr = mytags.trim().split(/\s+/);	//clean up the string and make into an array of tags
+		
+ 		var tagHead = $("#filterMenu");
+
+ 		for (tagIndx in tagsArr) {
+			
+ 			var tagButton = $("<button class='button tagfilter'>"+ tagsArr[tagIndx] + "</button>");
+			
+ 			tagHead.append(tagButton);
+			
+ 		}
+		
+		
+		
+		
+		
+		
+ 		$(".tagfilter").click(function(){
+						
+ 		theFilterText = $(this).text();
+ 		performFilter(theFilterText);
+		
 		 
-		 //TODO:
-		 //prepend the tags for filter funcgion:
-		 
- 		//find the tags for a filter:
- 		var s = $('#flickrfeed >.flickrFeedItem');
-		
-		var mytags = "";
-		s.each(function(){mytags += $(this).attr("data-tags")});
-		var tagsArr = mytags.split(" ");
-		
-		//turn each tag into a small button to perfom filter such as :-
-		
-		s.each(function(){		
-		//filter test for "mountain"
-		
-		if ($(this).attr("data-tags").match("mountain")) {
-			// $(this) -> selected by filter
-			$(this).show();	
-			}
-		else {
-			//	$(this) -> not selected by filter		
-			$(this).hide();
-		}
-		});
-		 
-	});
+ 	});
 	
 	
-		
+	performFilter("mountain"); //test initial filter
+
 	
+	
+	 function performFilter(theFilterText){
+	
+	 	var s = $('#flickrfeed >.flickrFeedItem');
+	 	s.each(function(){		
+	
+	 	if ($(this).attr("data-tags").match(theFilterText)) {
+	 		// $(this) -> selected by filter
+	 		$(this).show();	
+	 		}
+	 	else {
+	 		//	$(this) -> not selected by filter		
+	 		$(this).hide();
+	 	}
+	 	});
+	 }
+	
+
+	}); //end click handler for "GET FLICKR FEED"
+		 
+
+
+
 });
