@@ -97,9 +97,9 @@ $(function(){
 			 
 		 //add filter menu:
 		 $("#flickrfeedContent").append("<button id='filterMenuButton' class='button'>Filter</button>");
+		 $("#flickrfeedContent").append("<header id='activeFilters'><p>Filters:</p></header>");
 
 		 $("#flickrfeedContent").append("<header id='filterMenu' class='flickrTags'></header>");
-		 $("#flickrfeedContent").append("<header id='aciveFilters' class='flickrTags'>test filters</header>");
 		 
 		 
 		 
@@ -165,10 +165,38 @@ $(function(){
  		$(".tagfilter").click(function(){
 						
  		theFilterText = $(this).text();
+		
+		var newFilter = $("<div class='filter-container'> </div>");
+		newFilter.append($("<span class='filter-text'>" + theFilterText + "</span>"));
+		newFilter.append($("<span class='button filter-close-x'>x</span>"));
+		
+		// generated html looks like:
+		//
+		// <div class="filter-container">
+		// 	<span class="filter-text">
+		// 		nikon (e.g.)
+		// 	</span>
+		
+		// 	<span class="filter-close-x">
+		// 		x
+		// 	</span>
+		// </div>
+		
+
+		
+		$("#activeFilters").append(newFilter);
+		
+		$(".filter-close-x").click(function(){
+			$(this).parent().remove();
+		});
+		
+		
  		performFilter(theFilterText);
 		
 		 
  	});
+	
+
 	
 	
 	performFilter("mountain"); //test initial filter
