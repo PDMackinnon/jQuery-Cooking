@@ -109,21 +109,14 @@ $(function(){
 		 //add filter menu:
 		 $("#flickrfeedContent").append("<button id='filterMenuButton' class='button'>Filter</button>");
 		 $("#flickrfeedContent").append("<header id='activeFilters'><p>Filters:</p></header>");
-
 		 $("#flickrfeedContent").append("<header id='filterMenu' class='flickrTags'></header>");
-		 
-		 
-		 
+		 	 
 		 $("#filterMenuButton").click(function(){
 			 $("#filterMenu").toggle();
 		 });
 		 
 		 
-		 
-		 
-		 
- 		//iterate over jsonFlickrFeed JSON object and show the feed
-				 
+ 		//iterate over jsonFlickrFeed JSON object and show the feed	 
  		 var feedItem;
 		 
 		 //add each feed item:
@@ -156,7 +149,7 @@ $(function(){
  		var mytags = "";
  		s.each(function(){mytags += " " + $(this).attr("data-tags")});	//grab all tags as string (seperated by spaces)
 				
- 		var tagsArr = mytags.trim().split(/\s+/);	//clean up the string and make into an array of tags
+ 		var tagsArr = _.uniq(mytags.trim().split(/\s+/));	//clean up the string and make into an array of unique (_.uniq()) tags
 		
  		var tagHead = $("#filterMenu");
 
@@ -165,7 +158,6 @@ $(function(){
  			var tagButton = $("<button class='button tagfilter'>"+ tagsArr[tagIndx] + "</button>");
 			
  			tagHead.append(tagButton);
-			
  		}
 		
 		
