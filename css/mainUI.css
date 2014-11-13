@@ -207,7 +207,36 @@ button, .button {
    	display:none;
    		
        border-bottom: 4px solid gray;
+   }
+
+
+
+   #feature4 {
+	   display:none;
+	   width:600px;
+	   height:600px;
+	   background:white;
+	   margin-left:40px;	
+   }
+   
+   #zoomControl {
+	   display:block;
+	   width:100px;
+	   height:100px;
+	   background:gray;
+	   background-image:url("../img/tourism.jpg");
+	   background-size:100%;
+	   background-repeat:no-repeat;
+	
+   }
+   
+   #zoomPic {
+	   display:block;
+	   width:400px;
+	   height:400px;
+	   background-image:url("../img/tourism.jpg");
 	
 	
    }
+
    

@@ -40,6 +40,17 @@ $(function(){
 		}
 		
 		
+		//deal with tab button 4 case:
+			if ($(this).attr('id') == "tab-button4") {
+				$('#feature4').show("fast");	//did click on tab 4 so show it	
+			}
+			else
+			{
+				$('#feature4').hide("fast");	//did not click on tab 4 so hide it	
+			}
+			
+		
+		
 		
 	});
 	
@@ -225,7 +236,37 @@ $(function(){
 
 	}); //end click handler for "GET FLICKR FEED"
 		 
+		 
+	//////////////////////////////	 
+	// tab 4 feature: zoom pic
+
+	$("#zoomControl").mousemove(function(e){
+		var px = e.pageX; //page position of mouse pointer
+		var py = e.pageY;
+		
+		var zx = $(this).offset().left; //page position of zoom box
+		var zy = $(this).offset().top;
+		
+		var dx = px - zx; //distance of mouse from left edge of box -> 0 to 100 pixels
+		var dy = py - zy;
+		
+		//so conviently map 0->100 pixels to 0->100%
+		var zWidth = 100; //redundant width of zoom control box
+		var zHeight = 100;
+		
+		var newPos = dx + "%" + " " + dy + "%";
+		
+		$("#zoomPic").css(
+			{
+				"backgroundPosition":newPos
+			}
+		);
+		
+		
+		
+		
+	});
 
 
 
-});
+}); //end on ready
