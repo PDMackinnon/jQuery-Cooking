@@ -239,4 +239,27 @@ button, .button {
 	
    }
 
-   
+
+
+#aButton1 {
+    background: url(img/purpleAbutton.png);
+    width: 484px;
+    height: 230px;
+    background-repeat: no-repeat;
+}
+
+
+#aButton2 {
+    background: url(img/greenAbutton.png);
+    width: 484px;
+    height: 230px;
+    background-repeat: no-repeat;
+}
+
+
+#aButton3 {
+    background: url(img/yellowAbutton.png);
+    width: 484px;
+    height: 230px;
+    background-repeat: no-repeat;
+}
